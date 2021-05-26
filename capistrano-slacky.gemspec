@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
-  spec.add_dependency "capistrano", ">= 3.0.0"
+  spec.add_dependency "capistrano", "~> 3.0", ">= 3.0.0"
 
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.10"
