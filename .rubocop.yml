@@ -1,0 +1,23 @@
+require:
+  - standard/cop/block_single_line_braces
+  - rubocop-rake
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  Exclude:
+    - "bin/*"
+  TargetRubyVersion: 2.5
+  NewCops: enable
+
+############### Layout ###############
+
+Layout/LineLength:
+  Max: 120
+
+############### Style ###############
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
