@@ -11,6 +11,8 @@ module Capistrano
           env: env, action: action
         )
 
+        return if payload.empty?
+
         ::Capistrano::Slacky::Fanout.call(payload: payload)
       end
     end
