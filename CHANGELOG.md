@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Security
-- Fix possible command injection during the duration retrieval. ([@chubchenko][])
-
 ### Changed
 - Use `I18n.t` instead of `t`. ([@chubchenko][])
 - Use `forwardable` instead of `method_missing` + `respond_to_missing?`. ([@chubchenko][])
+
+### Fixed
+- Use `@env` instance variable instead of missing getter `env`. ([@chubchenko][])
+- Update your SSH regex to match the repository with a dash in the name. ([@chubchenko][])
+
+### Security
+- Fix possible command injection during the duration retrieval. ([@chubchenko][])
 
 ## [0.1.1] - 2021-05-27
 ### Fixed

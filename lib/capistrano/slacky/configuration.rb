@@ -37,14 +37,14 @@ module Capistrano
 
       def repo
         @repo ||= Repo.new(
-          remote: env.fetch(:repo_url)
+          remote: @env.fetch(:repo_url)
         )
       end
 
       private
 
       def data
-        @data ||= env.fetch(:slacky, {})
+        @data ||= @env.fetch(:slacky, {})
       end
 
       class Repo
@@ -64,7 +64,7 @@ module Capistrano
         end
 
         def ssh?
-          @remote.match?(/((git|ssh|http(s)?)|(git@[\w.]+))(:(\/)?)([\w.@:\/-~]+)(\.git)(\/)?/)
+          @remote.match?(/((git|ssh|http(s)?)|(git@[\w.]+))(:(\/)?)([\w.@:\/~-]+)(\.git)(\/)?/)
         end
       end
 
