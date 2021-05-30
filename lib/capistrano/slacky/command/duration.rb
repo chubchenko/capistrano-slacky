@@ -5,7 +5,7 @@ module Capistrano
     module Command
       class Duration
         def self.call(pid: $PID)
-          `ps -p #{pid} -o etime=`.strip
+          ::IO.popen(["ps", "-p", pid.to_s, "-o", "etime="]).readline.strip
         end
       end
     end
