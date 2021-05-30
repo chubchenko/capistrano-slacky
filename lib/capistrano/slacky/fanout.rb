@@ -9,18 +9,14 @@ module Capistrano
 
       module_function
 
-      def uri(role: Hook.role)
+      def uri
         output = nil
 
-        on(role) do
-          output = capture(:cat, File.join(shared_path, DEFAULT_HOOK_FILE))
+        ::Capistrano::Slacky.on(within: :shared) do
+          output = ::SSHKit::Backend.current.capture(:cat, DEFAULT_HOOK_FILE)
         end
 
         URI(output)
-      end
-
-      def role
-        ::Capistrano::Configuration.env.primary(:app)
       end
     end
 

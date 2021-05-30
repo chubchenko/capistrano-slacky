@@ -11,6 +11,7 @@ require_relative "slacky/runner"
 require_relative "slacky/block"
 require_relative "slacky/facade"
 require_relative "slacky/command"
+require_relative "slacky/on"
 
 module Capistrano
   module Slacky
@@ -19,6 +20,7 @@ module Capistrano
     extend ::SingleForwardable
 
     def_delegators :configuration, :username, :icon_emoji, :channel, :klass, :slacky?, :repo
+    def_delegator :"Capistrano::Slacky::On", :on
 
     # @return [Capistrano::Slacky::Configuration]
     def configuration

@@ -10,7 +10,7 @@ module Capistrano
       def self.for(env:)
         klass =
           if ::Capistrano::Slacky.slacky?
-            (::Capistrano::Slacky.klass || Default)
+            (::Capistrano::Slacky.klass || ::Capistrano::Slacky::Messaging::Default)
           else
             Null
           end
