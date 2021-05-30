@@ -16,13 +16,11 @@ module Capistrano
         def initialize(previous:, current:)
           ref = self
 
-          on(::Capistrano::Configuration.env.primary(:app)) do
-            within repo_path do
-              ref.difference = ::Capistrano::Slacky::Command::Diff.call(
-                previous: previous,
-                current: current
-              )
-            end
+          ::Capistrano::Slacky.on(within: :repository) do
+            ref.difference = ::Capistrano::Slacky::Command::Diff.call(
+              previous: previous,
+              current: current
+            )
           end
         end
 
