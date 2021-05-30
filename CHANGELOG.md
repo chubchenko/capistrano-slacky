@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Use `I18n.t` instead of `t`. ([@chubchenko][])
+- Use `forwardable` instead of `method_missing` + `respond_to_missing?`. ([@chubchenko][])
 
 ## [0.1.1] - 2021-05-27
 ### Fixed
