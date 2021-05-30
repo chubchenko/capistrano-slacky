@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+###
+Security
+- Fix possible command injection during the duration retrieval. ([@chubchenko][])
 
 ## [0.1.1] - 2021-05-27
 ### Fixed
-- Fix a bug related to using a `Null` messaging
+- Fix a bug related to using a `Null` messaging. ([@chubchenko][])
 
 ## [0.1.0] - 2021-05-26
 ### Added
