@@ -39,7 +39,7 @@ module Capistrano
         }.freeze
 
         def initialize(text)
-          super(t("slacky.#{text}", emoji: EMOJI_MAP.fetch(text).sample))
+          super(::I18n.t("slacky.#{text}", scope: "capistrano", emoji: EMOJI_MAP.fetch(text).sample))
         end
       end
     end

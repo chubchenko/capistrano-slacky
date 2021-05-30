@@ -8,9 +8,9 @@ module Capistrano
           @env = env
 
           super(
-            t("slacky.stage"), "`#{stage}`",
-            t("slacky.branch"), "`#{branch}`",
-            t("slacky.duration"), "`#{duration}`",
+            ::I18n.t("slacky.stage", scope: "capistrano"), "`#{stage}`",
+            ::I18n.t("slacky.branch", scope: "capistrano"), "`#{branch}`",
+            ::I18n.t("slacky.duration", scope: "capistrano"), "`#{duration}`",
           )
         end
 

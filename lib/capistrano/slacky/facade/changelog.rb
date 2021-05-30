@@ -29,7 +29,7 @@ module Capistrano
         def call
           if difference.empty?
             return ::Capistrano::Slacky::Block::Context.new(
-              t("slacky.nothing_has_changed_since_the_previous_release")
+              ::I18n.t("slacky.nothing_has_changed_since_the_previous_release", scope: "capistrano")
             )
           end
 
