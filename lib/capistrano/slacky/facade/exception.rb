@@ -6,7 +6,7 @@ module Capistrano
       class Exception < ::Capistrano::Slacky::Block::Context
         DefaultException = ::Class.new(::StandardError) do
           def initialize
-            super(t("slacky.something_went_wrong"))
+            super(::I18n.t("slacky.something_went_wrong", scope: "capistrano"))
           end
         end
 

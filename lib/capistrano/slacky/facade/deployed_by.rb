@@ -6,7 +6,7 @@ module Capistrano
       class DeployedBy < ::Capistrano::Slacky::Block::Context
         def initialize(env:)
           super(
-            t("slacky.deployed_by", deployer: env.fetch(:local_user))
+            ::I18n.t("slacky.deployed_by", scope: "capistrano", deployer: env.fetch(:local_user))
           )
         end
       end
