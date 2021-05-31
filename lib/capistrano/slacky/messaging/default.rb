@@ -31,6 +31,12 @@ module Capistrano
             ::Capistrano::Slacky::Facade::DeployedBy.new(env: env)
           ).as_json
         end
+
+        private
+
+        def deploying?
+          env.fetch(:deploying, false)
+        end
       end
     end
   end
