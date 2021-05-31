@@ -15,17 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [2.5, 2.6, 2.7, 3.0]
+        ruby: [2.5, 2.6, 2.7, '3.0', head]
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: eregon/use-ruby-action@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-      - name: Setting up Bundler
-        run: |
-          gem install bundler
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true
       - name: Run RSpec
         run: |
           bundle exec rspec

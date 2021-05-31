@@ -2,8 +2,8 @@
 
 require "simplecov"
 require "bundler/setup"
-require "support/config/rake"
 require "support/config/capistrano"
+require "support/config/rake"
 require "capistrano/slacky"
 
 RSpec.configure do |config|

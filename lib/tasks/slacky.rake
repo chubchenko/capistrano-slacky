@@ -21,7 +21,7 @@ namespace :slacky do
     ask(:previous_revision) unless env.any?(:previous_revision)
     ask(:current_revision) unless env.any?(:current_revision)
 
-    ["updated", "reverted", "failed"].each do |action|
+    [:updated, :reverted, :failed].each do |action|
       Capistrano::Slacky::Runner.call(action: action)
     end
   end
