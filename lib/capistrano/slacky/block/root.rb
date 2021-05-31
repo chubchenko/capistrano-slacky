@@ -8,9 +8,9 @@ module Capistrano
           @blocks = blocks.flatten
         end
 
-        def to_json
+        def as_json
           {
-            blocks: @blocks.map(&:to_json)
+            blocks: @blocks.map(&:as_json)
           }
         end
       end

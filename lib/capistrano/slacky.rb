@@ -22,7 +22,6 @@ module Capistrano
     def_delegators :configuration, :username, :icon_emoji, :channel, :klass, :slacky?, :repo
     def_delegator :"Capistrano::Slacky::On", :on
 
-    # @return [Capistrano::Slacky::Configuration]
     def configuration
       @configuration ||= ::Capistrano::Slacky::Configuration.new
     end

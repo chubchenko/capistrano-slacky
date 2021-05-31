@@ -11,7 +11,7 @@ module Capistrano
             ::Capistrano::Slacky::Facade::Revision.new(env: env),
             ::Capistrano::Slacky::Facade::Changelog.for(env: env),
             ::Capistrano::Slacky::Facade::DeployedBy.new(env: env)
-          ).to_json
+          ).as_json
         end
 
         def payload_for_reverted
@@ -20,7 +20,7 @@ module Capistrano
             ::Capistrano::Slacky::Facade::Body.new(env: env),
             ::Capistrano::Slacky::Facade::Revision.new(env: env),
             ::Capistrano::Slacky::Facade::DeployedBy.new(env: env)
-          ).to_json
+          ).as_json
         end
 
         def payload_for_failed
@@ -29,7 +29,7 @@ module Capistrano
             ::Capistrano::Slacky::Facade::Body.new(env: env),
             ::Capistrano::Slacky::Facade::Exception.new,
             ::Capistrano::Slacky::Facade::DeployedBy.new(env: env)
-          ).to_json
+          ).as_json
         end
       end
     end
