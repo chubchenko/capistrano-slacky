@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 load File.expand_path("../../tasks/slacky.rake", __FILE__)
-
-require "forwardable"
+load File.expand_path("../../tasks/hooks.rake", __FILE__)
+load File.expand_path("../../tasks/defaults.rake", __FILE__)
 
 require_relative "slacky/version"
 require_relative "slacky/configuration"
@@ -15,6 +15,8 @@ require_relative "slacky/on"
 
 module Capistrano
   module Slacky
+    require "forwardable"
+
     module_function
 
     extend ::SingleForwardable
