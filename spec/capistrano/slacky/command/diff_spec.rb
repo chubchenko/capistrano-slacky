@@ -43,7 +43,7 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
         .and_return("Bump rspec from 3.7.1 to 4.0.1\n")
     end
 
-    it "returns the collection of the messages" do
+    it "returns a collection of messages where each element responds to the #to_a method" do
       expect(described_class.new(previous: "2eab27", current: "02c4c96").call.map(&:to_a)).to match_array(
         [
           [

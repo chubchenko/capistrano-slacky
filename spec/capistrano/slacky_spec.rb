@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 RSpec.describe Capistrano::Slacky do
-  it "has a version number" do
-    expect(Capistrano::Slacky::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+  it { is_expected.to respond_to(:username) }
+  it { is_expected.to respond_to(:icon_emoji) }
+  it { is_expected.to respond_to(:channel) }
+  it { is_expected.to respond_to(:klass) }
+  it { is_expected.to respond_to(:slacky?) }
+  it { is_expected.to respond_to(:repo) }
+  it { is_expected.to respond_to(:on) }
 end
