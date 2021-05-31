@@ -3,9 +3,13 @@
 module Capistrano
   module Slacky
     module On
+      class Path
+        extend ::Capistrano::DSL
+      end
+
       PATH_MAP = {
-        repository: -> { ::Capistrano::Configuration.env.repo_path },
-        shared: -> { ::Capistrano::Configuration.env.shared_path }
+        repository: Path.repo_path,
+        shared: Path.shared_path
       }.freeze
 
       private_constant :PATH_MAP
@@ -14,7 +18,7 @@ module Capistrano
 
       def on(within:, &block)
         ::Capistrano::DSL.on(::Capistrano::Configuration.env.primary(:app)) do
-          ::SSHKit::Backend.current.within(PATH_MAP.fetch(within).call, &block)
+          ::SSHKit::Backend.current.within(PATH_MAP.fetch(within), &block)
         end
       end
     end
