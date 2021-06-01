@@ -8,7 +8,7 @@ module Capistrano
           @text = text
         end
 
-        def to_json
+        def as_json
           {
             type: :header,
             text: {

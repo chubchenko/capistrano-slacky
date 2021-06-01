@@ -6,7 +6,7 @@ require_relative "fanout"
 module Capistrano
   module Slacky
     class Runner
-      def self.call(env:, action:)
+      def self.call(action:, env: ::Capistrano::Configuration.env)
         payload = ::Capistrano::Slacky::Payload.new(
           env: env, action: action
         )

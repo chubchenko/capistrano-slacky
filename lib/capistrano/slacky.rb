@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 load File.expand_path("../../tasks/slacky.rake", __FILE__)
-
-require "forwardable"
+load File.expand_path("../../tasks/hooks.rake", __FILE__)
+load File.expand_path("../../tasks/defaults.rake", __FILE__)
 
 require_relative "slacky/version"
 require_relative "slacky/configuration"
@@ -15,6 +15,8 @@ require_relative "slacky/on"
 
 module Capistrano
   module Slacky
+    require "forwardable"
+
     module_function
 
     extend ::SingleForwardable
@@ -22,7 +24,6 @@ module Capistrano
     def_delegators :configuration, :username, :icon_emoji, :channel, :klass, :slacky?, :repo
     def_delegator :"Capistrano::Slacky::On", :on
 
-    # @return [Capistrano::Slacky::Configuration]
     def configuration
       @configuration ||= ::Capistrano::Slacky::Configuration.new
     end

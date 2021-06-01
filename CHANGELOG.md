@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use `I18n.t` instead of `t`. ([@chubchenko][])
 - Use `forwardable` instead of `method_missing` + `respond_to_missing?`. ([@chubchenko][])
 - Use the `On` module to interact with the remote server. ([@chubchenko][])
+- Extracted hooks and defaults from `slacky.rake` into separate files. ([@chubchenko][])
+- Renamed `#to_json` to `#as_json`. ([@chubchenko][])
+- Updated hooks from `before` to `after`. ([@chubchenko][])
+- Added 💯 test coverage. ([@chubchenko][])
 
 ### Fixed
 - Use `@env` instance variable instead of missing getter `env`. ([@chubchenko][])

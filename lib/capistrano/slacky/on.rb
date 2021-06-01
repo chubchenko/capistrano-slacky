@@ -3,9 +3,13 @@
 module Capistrano
   module Slacky
     module On
+      class Path
+        extend ::Capistrano::DSL
+      end
+
       PATH_MAP = {
-        repository: -> { ::Capistrano::Configuration.env.repo_path },
-        shared: -> { ::Capistrano::Configuration.env.shared_path }
+        repository: -> { Path.repo_path },
+        shared: -> { Path.shared_path }
       }.freeze
 
       private_constant :PATH_MAP

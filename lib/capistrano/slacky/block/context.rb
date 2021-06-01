@@ -10,10 +10,10 @@ module Capistrano
           end
         end
 
-        def to_json
+        def as_json
           {
             type: :context,
-            elements: @elements.map(&:to_json)
+            elements: @elements.map(&:as_json)
           }
         end
 
@@ -22,7 +22,7 @@ module Capistrano
             @text = text
           end
 
-          def to_json
+          def as_json
             {
               type: :mrkdwn,
               text: @text
