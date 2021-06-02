@@ -22,8 +22,6 @@ RSpec.describe Capistrano::Slacky::Facade::Changelog do
   describe "#call" do
     subject(:changelog) { described_class.new(previous: "2eab27b", current: "02c4c96") }
 
-    before { allow(Capistrano::Slacky::On).to receive(:on).with(within: :repository).and_yield }
-
     context "when the revisions diff is empty" do
       before do
         allow(Capistrano::Slacky::Command::Diff).to receive(:call)

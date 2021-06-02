@@ -5,6 +5,10 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
     let(:diff) { instance_double(described_class) }
 
     before do
+      allow(Capistrano::Slacky::On).to receive(:on)
+        .with(within: :repository)
+        .and_yield
+
       allow(diff).to receive(:call)
 
       allow(described_class).to receive(:new)
@@ -20,26 +24,21 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
   end
 
   describe "#call" do
-    let(:diff_io) { instance_double(IO) }
-    let(:commit_io) { instance_double(IO) }
+    let(:backend) { instance_double(SSHKit::Backend::Netssh) }
 
     before do
-      allow(IO).to receive(:popen)
-        .with(["git", "log", "--oneline", "--first-parent", "2eab27..02c4c96"])
-        .and_return(diff_io)
-      allow(diff_io).to receive(:readlines).and_return(
-        [
-          "02c4c96 Update changelog & dependency version\n",
-          "705253c Build initial version of the gem\n",
+      allow(SSHKit::Backend).to receive(:current).and_return(backend)
+
+      allow(backend).to receive(:capture)
+        .with(:git, :log, "--oneline", "--first-parent", "2eab27..02c4c96")
+        .and_return(
+          "02c4c96 Update changelog & dependency version\n" \
+          "705253c Build initial version of the gem\n" \
           "837d7a1 Merge pull request #4502 from chubchenko/dependabot/bundler/rspec-4.0.1\n"
-        ]
-      )
+        )
 
-      allow(IO).to receive(:popen)
-        .with(["git", "log", "-1", "837d7a1", '--pretty=format:"%b"'])
-        .and_return(commit_io)
-
-      allow(commit_io).to receive(:readline)
+      allow(backend).to receive(:capture)
+        .with(:git, :log, "-1", "837d7a1", '--pretty=format:"%b"')
         .and_return("Bump rspec from 3.7.1 to 4.0.1\n")
     end
 

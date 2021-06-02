@@ -5,7 +5,13 @@ module Capistrano
     module Command
       class Diff
         def self.call(previous:, current:)
-          new(previous: previous, current: current).call
+          output = nil
+
+          ::Capistrano::Slacky.on(within: :repository) do
+            output = new(previous: previous, current: current).call
+          end
+
+          output
         end
 
         def initialize(previous:, current:)
@@ -14,15 +20,15 @@ module Capistrano
         end
 
         def call
-          diff = ::IO.popen(
-            ["git", "log", "--oneline", "--first-parent", "#{previous}..#{current}"]
-          ).readlines
+          log = ::SSHKit::Backend.current.capture(
+            :git, :log, "--oneline", "--first-parent", "#{previous}..#{current}"
+          ).split("\n")
 
-          diff.map.with_index(1) do |line, index|
+          log.map.with_index(1) do |line, index|
             sha, commit = line.match(/^(\w+) (.*+?)/).captures
 
             if /^Merge pull request/.match?(commit)
-              commit = ::IO.popen(["git", "log", "-1", sha, '--pretty=format:"%b"']).readline
+              commit = ::SSHKit::Backend.current.capture(:git, :log, "-1", sha, '--pretty=format:"%b"')
             end
 
             Message.new(index: index, sha: sha, commit: commit)

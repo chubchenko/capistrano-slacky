@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Use `@env` instance variable instead of missing getter `env`. ([@chubchenko][])
 - Update your SSH regex to match the repository with a dash in the name. ([@chubchenko][])
+- Use `SSHKit::Backend.current.capture` instead of `IO.popen` to perform `git log ..` on the remote server. ([@chubchenko][])
 
 ### Security
 - Fix possible command injection during the duration retrieval. ([@chubchenko][])

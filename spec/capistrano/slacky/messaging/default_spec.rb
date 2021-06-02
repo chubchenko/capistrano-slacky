@@ -2,7 +2,19 @@
 
 RSpec.describe Capistrano::Slacky::Messaging::Default do
   describe "#payload_for_updated" do
-    before { allow(Capistrano::Slacky::On).to receive(:on).with(within: :repository).and_yield }
+    let(:backend) { instance_double(SSHKit::Backend::Netssh) }
+
+    before do
+      allow(Capistrano::Slacky::On).to receive(:on).with(within: :repository).and_yield
+
+      allow(SSHKit::Backend).to receive(:current).and_return(backend)
+      allow(backend).to receive(:capture)
+        .with(:git, :log, "--oneline", "--first-parent", "2eab27b..02c4c96")
+        .and_return(
+          "02c4c96 Update changelog & dependency version\n" \
+          "705253c Build initial version of the gem (#1)\n"
+        )
+    end
 
     it "returns the Hash representation for a successful deployment" do
       expect(described_class.new(env: Capistrano::Configuration.env).payload_for_updated).to match(

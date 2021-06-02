@@ -11,17 +11,11 @@ module Capistrano
           ).call
         end
 
-        attr_accessor :difference
-
         def initialize(previous:, current:)
-          ref = self
-
-          ::Capistrano::Slacky.on(within: :repository) do
-            ref.difference = ::Capistrano::Slacky::Command::Diff.call(
-              previous: previous,
-              current: current
-            )
-          end
+          @difference = ::Capistrano::Slacky::Command::Diff.call(
+            previous: previous,
+            current: current
+          )
         end
 
         def call
@@ -37,6 +31,10 @@ module Capistrano
             )
           end
         end
+
+        private
+
+        attr_reader :difference
       end
     end
   end
