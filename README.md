@@ -1,7 +1,7 @@
 <div align="center">
   <img align="center"
        height="100"
-       title="dn-ruby logo"
+       title="capistrano-slacky logo"
        src="./assets/images/logo.svg">
 </div>
 
