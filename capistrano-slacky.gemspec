@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name = "capistrano-slacky"
   spec.version = Capistrano::Slacky::VERSION
   spec.summary = "Send Capistrano deployment status to Slack"
-  spec.description = "Send Capistrano deployment status to Slack via the incoming webhooks integration"
+  spec.description = "Send Capistrano deployment status to Slack via the Incoming Webhooks integration"
   spec.author = "Artem Chubchenko"
 
   spec.license = "MIT"
