@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Update `README.md`. ([@chubchenko][])
 
+### Fixed
+- Change commit message encoding to `UTF-8`. ([@chubchenko][])
+
 ## [0.1.2] - 2021-06-03
 ### Changed
 - Use `I18n.t` instead of `t`. ([@chubchenko][])

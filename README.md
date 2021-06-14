@@ -14,7 +14,7 @@
 Send `Capistrano` deployment status to `Slack` via the Incoming Webhooks integration.
 
 - Messages are built on the basis of the [Block Kit][13]. See [Demo](#demo) section.
-- Fires after every successful/failed deployment or rollback
+- Fires after every successful/failed deployment or rollback.
 - Use _Incoming Webhook URL_ from the remote server.
 - Send commit log between 2 deployments.
 

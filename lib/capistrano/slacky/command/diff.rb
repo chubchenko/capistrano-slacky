@@ -54,6 +54,9 @@ module Capistrano
           "0" => ":zero:"
         }.freeze
 
+        DEFAULT_ENCODING = "UTF-8"
+        private_constant :DEFAULT_ENCODING
+
         def initialize(index:, sha:, commit:)
           @index = index
           @sha = sha
@@ -71,7 +74,7 @@ module Capistrano
         end
 
         def commit
-          @commit.delete('"').strip
+          @commit.delete('"').strip.force_encoding(DEFAULT_ENCODING)
         end
 
         def to_a
