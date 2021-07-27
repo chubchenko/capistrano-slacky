@@ -9,7 +9,8 @@ module Capistrano
 
       PATH_MAP = {
         repository: -> { Path.repo_path },
-        shared: -> { Path.shared_path }
+        shared: -> { Path.shared_path },
+        release: -> { Path.release_path }
       }.freeze
 
       private_constant :PATH_MAP

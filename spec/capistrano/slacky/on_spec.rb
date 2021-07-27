@@ -41,5 +41,20 @@ RSpec.describe Capistrano::Slacky::On do
         end.to yield_control
       end
     end
+
+    context "when the within the release" do
+      before do
+        allow(SSHKit::Backend).to receive(:current).and_return(backend)
+
+        allow(backend).to receive(:within).with(Pathname.new("var/www/slacky/current"))
+          .and_yield
+      end
+
+      it "yields on the remote server in the `var/www/slacky/current` folder" do
+        expect do |block|
+          described_class.on(within: :release, &block)
+        end.to yield_control
+      end
+    end
   end
 end
