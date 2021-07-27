@@ -21,6 +21,8 @@ RSpec.describe "slacky:updated" do
 end
 
 RSpec.describe "slacky:reverted" do
+  before { allow(Capistrano::Slacky::Command::CurrentRevision).to receive(:call) }
+
   it "slacky after successful rollback" do
     allow(Capistrano::Slacky::Runner).to receive(:call)
 
@@ -37,6 +39,10 @@ RSpec.describe "slacky:reverted" do
     Rake::Task["deploy:finishing_rollback"].execute
 
     expect(Rake::Task["slacky:reverted"]).to have_received(:invoke)
+  end
+
+  it "invokes slacky:ensure_current_revision before slacky:reverted" do
+    expect(Rake::Task["slacky:reverted"].prerequisites).to match_array("ensure_current_revision")
   end
 end
 
@@ -69,5 +75,31 @@ RSpec.describe "slacky:ping" do
     Rake::Task["slacky:ping"].invoke
 
     expect(Capistrano::Slacky::Runner).to have_received(:call).exactly(3).times
+  end
+end
+
+RSpec.describe "slacky:ensure_current_revision" do
+  context "when :current_revision is empty" do
+    before { allow(Capistrano::Slacky::Command::CurrentRevision).to receive(:call).and_return("2eab27b") }
+
+    around do |example|
+      previous = Capistrano::Configuration.env.delete(:current_revision)
+      example.run
+      Capistrano::Configuration.env.set(:current_revision, previous)
+    end
+
+    it "sets :current_revision" do
+      Rake::Task["slacky:ensure_current_revision"].execute
+
+      expect(Capistrano::Configuration.env.fetch(:current_revision)).to eq("2eab27b")
+    end
+  end
+
+  context "when :current_revision is not empty" do
+    it "does not set :current_revision" do
+      Rake::Task["slacky:ensure_current_revision"].execute
+
+      expect(Capistrano::Configuration.env.fetch(:current_revision)).to eq("02c4c96")
+    end
   end
 end

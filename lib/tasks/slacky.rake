@@ -7,7 +7,7 @@ namespace :slacky do
   end
 
   desc "Slacky after successful rollback"
-  task :reverted do
+  task reverted: [:ensure_current_revision] do
     Capistrano::Slacky::Runner.call(action: :reverted)
   end
 
@@ -24,5 +24,10 @@ namespace :slacky do
     [:updated, :reverted, :failed].each do |action|
       Capistrano::Slacky::Runner.call(action: action)
     end
+  end
+
+  desc "Ensure that the current revision is set"
+  task :ensure_current_revision do
+    set_if_empty(:current_revision) { Capistrano::Slacky::Command::CurrentRevision.call }
   end
 end
