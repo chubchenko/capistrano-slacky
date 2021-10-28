@@ -18,7 +18,9 @@ module Capistrano
       module_function
 
       def on(within:, &block)
-        ::Capistrano::DSL.on(::Capistrano::Configuration.env.primary(:app)) do
+        role = ::Capistrano::Configuration.env.primary(:app) || ::Capistrano::Configuration.env.roles(:all).first
+
+        ::Capistrano::DSL.on(role) do
           ::SSHKit::Backend.current.within(PATH_MAP.fetch(within).call, &block)
         end
       end
