@@ -5,6 +5,8 @@ require_relative "messaging"
 module Capistrano
   module Slacky
     class Payload
+      require "json"
+
       def initialize(env:, action:)
         @env = env
         @action = action
