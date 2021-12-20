@@ -9,14 +9,18 @@ module Capistrano
           ":drooling_face:",
           ":sunglasses:",
           ":partying_face:",
-          ":heart_eyes:"
+          ":heart_eyes:",
+          ":star-struck:",
+          ":yum:"
         ].freeze
 
         REVERTED_SUCCESSFULLY = [
           ":upside_down_face:",
           ":pensive:",
           ":face_with_raised_eyebrow:",
-          ":worried:"
+          ":worried:",
+          ":pleading_face:",
+          ":shushing_face:"
         ].freeze
 
         DEPLOYMENT_FAILED = [
@@ -26,7 +30,10 @@ module Capistrano
           ":woozy_face:",
           ":exploding_head:",
           ":sob:",
-          ":cry:"
+          ":cry:",
+          ":dizzy_face:",
+          ":face_with_hand_over_mouth:",
+          ":broken_heart:"
         ].freeze
 
         ROLLBACK_FAILED = DEPLOYMENT_FAILED
