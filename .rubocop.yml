@@ -21,3 +21,13 @@ Layout/LineLength:
 
 Style/FrozenStringLiteralComment:
   Enabled: true
+
+############### Style ###############
+
+RSpec/DescribeClass:
+  IgnoredMetadata:
+    type:
+      - task
+
+RSpec/ExampleLength:
+  Enabled: false
