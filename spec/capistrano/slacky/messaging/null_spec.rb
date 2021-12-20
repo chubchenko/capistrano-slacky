@@ -2,7 +2,7 @@
 
 RSpec.describe Capistrano::Slacky::Messaging::Null do
   describe "#payload_for" do
-    subject(:null) { described_class.new(env: Capistrano::Configuration.env) }
+    let(:null) { described_class.new(env: Capistrano::Configuration.env) }
 
     context "when action is `updated`" do
       before do
