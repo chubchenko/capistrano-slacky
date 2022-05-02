@@ -51,10 +51,11 @@ bundle install
 Out of the box, the gem has a default configuration:
 
 ```ruby
-set :slacky, username: "ChatOps", # Set your bot's user name.
-             icon_emoji: ":robot_face:", # Emoji to use as the icon for this message.
-             channel: "#deployment", # The name of the channel to send a message to.
-             klass: Capistrano::Slacky::Messaging::Default # The class that responsible for creating a message.
+set :slacky,
+  username: "ChatOps", # Set your bot's user name.
+  icon_emoji: ":robot_face:", # Emoji to use as the icon for this message.
+  channel: "#deployment", # The name of the channel to send a message to.
+  klass: Capistrano::Slacky::Messaging::Default # The class that responsible for creating a message.
 ```
 
 So you can easily tweak your deployment messages and all other configuration to what you want.

@@ -55,17 +55,17 @@ RSpec.describe Capistrano::Slacky::Messaging::Default do
             {
               type: :context,
               elements: [
-                {type: :mrkdwn, text: ":one:"},
-                {type: :mrkdwn, text: "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>"},
-                {type: :mrkdwn, text: "Update changelog & dependency version"}
+                {type: :mrkdwn, text: ":two:"},
+                {type: :mrkdwn, text: "<https://github.com/chubchenko/capistrano-slacky/commit/705253c|705253c>"},
+                {type: :mrkdwn, text: "Build initial version of the gem (#1)"}
               ]
             },
             {
               type: :context,
               elements: [
-                {type: :mrkdwn, text: ":two:"},
-                {type: :mrkdwn, text: "<https://github.com/chubchenko/capistrano-slacky/commit/705253c|705253c>"},
-                {type: :mrkdwn, text: "Build initial version of the gem (#1)"}
+                {type: :mrkdwn, text: ":one:"},
+                {type: :mrkdwn, text: "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>"},
+                {type: :mrkdwn, text: "Update changelog & dependency version"}
               ]
             },
             {

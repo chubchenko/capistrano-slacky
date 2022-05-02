@@ -8,10 +8,13 @@ module Capistrano
           @env = env
 
           super(
-            I18n.t("slacky.revision", scope: "capistrano",
-                                      repository_url: ::Capistrano::Slacky.repo.url,
-                                      current: current,
-                                      previous: previous)
+            I18n.t(
+              "slacky.revision",
+              scope: "capistrano",
+              repository_url: ::Capistrano::Slacky.repo.url,
+              current: current,
+              previous: previous
+            )
           )
         end
 
