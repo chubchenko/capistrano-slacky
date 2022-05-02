@@ -25,7 +25,7 @@ module Capistrano
             )
           end
 
-          difference.map do |message|
+          difference.reverse.map do |message|
             ::Capistrano::Slacky::Block::Context.new(
               *message.to_a
             )
