@@ -24,7 +24,7 @@ module Capistrano
             :git, :log, "--oneline", "--first-parent", "#{previous}..#{current}"
           ).split("\n")
 
-          log.map.with_index(1) do |line, index|
+          log.reverse.map.with_index(1) do |line, index|
             sha, commit = line.match(/^(\w+) (.*+?)/).captures
 
             if /^Merge pull request/.match?(commit)

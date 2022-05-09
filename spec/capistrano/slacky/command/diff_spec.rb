@@ -47,8 +47,8 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
         [
           [
             ":one:",
-            "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>",
-            "Update changelog & dependency version"
+            "<https://github.com/chubchenko/capistrano-slacky/commit/837d7a1|837d7a1>",
+            "Bump rspec from 3.7.1 to 4.0.1"
           ],
           [
             ":two:",
@@ -57,8 +57,8 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
           ],
           [
             ":three:",
-            "<https://github.com/chubchenko/capistrano-slacky/commit/837d7a1|837d7a1>",
-            "Bump rspec from 3.7.1 to 4.0.1"
+            "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>",
+            "Update changelog & dependency version"
           ]
         ]
       )
