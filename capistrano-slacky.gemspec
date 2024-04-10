@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{lib}/**/*", "*.md"]
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
 
   spec.add_dependency "capistrano", "~> 3.0", ">= 3.0.0"
 
