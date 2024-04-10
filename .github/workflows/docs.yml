@@ -14,11 +14,11 @@ jobs:
   rubocop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby 2.5
+      - uses: actions/checkout@v4
+      - name: Set up Ruby 3.0
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.5
+          ruby-version: 3.0
       - name: Lint Markdown files with RuboCop
         run: |
           gem install bundler
