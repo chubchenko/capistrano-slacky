@@ -22,8 +22,7 @@ RSpec.describe Capistrano::Slacky::Messaging do
 
     context "when there is a messaging class" do
       before do
-        allow(Capistrano::Slacky).to receive(:slacky?).and_return(true)
-        allow(Capistrano::Slacky).to receive(:klass).and_return(Capistrano::Slacky::Messaging::Base)
+        allow(Capistrano::Slacky).to receive_messages(slacky?: true, klass: Capistrano::Slacky::Messaging::Base)
 
         allow(Capistrano::Slacky::Messaging::Base).to receive(:new).with(env: env)
 
@@ -39,8 +38,7 @@ RSpec.describe Capistrano::Slacky::Messaging do
 
     context "when there is a messaging class is absent" do
       before do
-        allow(Capistrano::Slacky).to receive(:slacky?).and_return(true)
-        allow(Capistrano::Slacky).to receive(:klass).and_return(nil)
+        allow(Capistrano::Slacky).to receive_messages(slacky?: true, klass: nil)
 
         allow(Capistrano::Slacky::Messaging::Default).to receive(:new).with(env: env)
 

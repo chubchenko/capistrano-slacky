@@ -43,25 +43,19 @@ RSpec.describe Capistrano::Slacky::Command::Diff do
     end
 
     it "returns a collection of messages where each element responds to the #to_a method" do
-      expect(described_class.new(previous: "2eab27", current: "02c4c96").call.map(&:to_a)).to match_array(
-        [
-          [
-            ":one:",
-            "<https://github.com/chubchenko/capistrano-slacky/commit/837d7a1|837d7a1>",
-            "Bump rspec from 3.7.1 to 4.0.1"
-          ],
-          [
-            ":two:",
-            "<https://github.com/chubchenko/capistrano-slacky/commit/705253c|705253c>",
-            "Build initial version of the gem"
-          ],
-          [
-            ":three:",
-            "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>",
-            "Update changelog & dependency version"
-          ]
-        ]
-      )
+      expect(described_class.new(previous: "2eab27", current: "02c4c96").call.map(&:to_a)).to contain_exactly([
+        ":one:",
+        "<https://github.com/chubchenko/capistrano-slacky/commit/837d7a1|837d7a1>",
+        "Bump rspec from 3.7.1 to 4.0.1"
+      ], [
+        ":two:",
+        "<https://github.com/chubchenko/capistrano-slacky/commit/705253c|705253c>",
+        "Build initial version of the gem"
+      ], [
+        ":three:",
+        "<https://github.com/chubchenko/capistrano-slacky/commit/02c4c96|02c4c96>",
+        "Update changelog & dependency version"
+      ])
     end
   end
 end
