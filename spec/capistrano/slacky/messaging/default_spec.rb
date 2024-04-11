@@ -34,7 +34,7 @@ RSpec.describe Capistrano::Slacky::Messaging::Default do
                 {type: :mrkdwn, text: ">*Stage:*"},
                 {type: :mrkdwn, text: "`production`"},
                 {type: :mrkdwn, text: ">*Branch:*"},
-                {type: :mrkdwn, text: "`master`"},
+                {type: :mrkdwn, text: "`main`"},
                 {type: :mrkdwn, text: ">*Duration:*"},
                 {type: :mrkdwn, text: a_string_matching(/`\d{2}:\d{2}`/)}
               ]
@@ -99,7 +99,7 @@ RSpec.describe Capistrano::Slacky::Messaging::Default do
                 {type: :mrkdwn, text: ">*Stage:*"},
                 {type: :mrkdwn, text: "`production`"},
                 {type: :mrkdwn, text: ">*Branch:*"},
-                {type: :mrkdwn, text: "`master`"},
+                {type: :mrkdwn, text: "`main`"},
                 {type: :mrkdwn, text: ">*Duration:*"},
                 {type: :mrkdwn, text: a_string_matching(/`\d{2}:\d{2}`/)}
               ]
@@ -159,7 +159,7 @@ RSpec.describe Capistrano::Slacky::Messaging::Default do
                   {type: :mrkdwn, text: ">*Stage:*"},
                   {type: :mrkdwn, text: "`production`"},
                   {type: :mrkdwn, text: ">*Branch:*"},
-                  {type: :mrkdwn, text: "`master`"},
+                  {type: :mrkdwn, text: "`main`"},
                   {type: :mrkdwn, text: ">*Duration:*"},
                   {type: :mrkdwn, text: a_string_matching(/`\d{2}:\d{2}`/)}
                 ]
@@ -201,7 +201,7 @@ RSpec.describe Capistrano::Slacky::Messaging::Default do
                   {type: :mrkdwn, text: ">*Stage:*"},
                   {type: :mrkdwn, text: "`production`"},
                   {type: :mrkdwn, text: ">*Branch:*"},
-                  {type: :mrkdwn, text: "`master`"},
+                  {type: :mrkdwn, text: "`main`"},
                   {type: :mrkdwn, text: ">*Duration:*"},
                   {type: :mrkdwn, text: a_string_matching(/`\d{2}:\d{2}`/)}
                 ]

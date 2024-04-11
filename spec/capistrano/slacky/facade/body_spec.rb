@@ -19,7 +19,7 @@ RSpec.describe Capistrano::Slacky::Facade::Body do
               type: :mrkdwn, text: ">*Branch:*"
             },
             {
-              type: :mrkdwn, text: "`master`"
+              type: :mrkdwn, text: "`main`"
             },
             {
               type: :mrkdwn, text: ">*Duration:*"
