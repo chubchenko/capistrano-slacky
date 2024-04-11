@@ -28,7 +28,7 @@ Send `Capistrano` deployment status to `Slack` via the Incoming Webhooks integra
 
 ## Requirements
 
-- Ruby >= 2.5
+- Ruby >= 3.0
 - Capistrano ~> 3.0
 - Slack
 
@@ -90,10 +90,10 @@ set :slacky, false
 
 This library aims to support and is [tested against][2] the following Ruby implementations:
 
-- Ruby 2.5
-- Ruby 2.6
-- Ruby 2.7
 - Ruby 3.0
+- Ruby 3.1
+- Ruby 3.2
+- Ruby 3.3
 
 If something doesn't work on one of these Ruby versions, it's a bug.
 
