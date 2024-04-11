@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/chubchenko/capistrano-slacky"
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/chubchenko/capistrano-slacky/issues",
-    "changelog_uri" => "https://github.com/chubchenko/capistrano-slacky/blob/master/CHANGELOG.md",
+    "changelog_uri" => "https://github.com/chubchenko/capistrano-slacky/blob/main/CHANGELOG.md",
     "homepage_uri" => spec.homepage,
     "source_code_uri" => "https://github.com/chubchenko/capistrano-slacky",
     "github_repo" => "ssh://github.com/chubchenko/capistrano-slacky"

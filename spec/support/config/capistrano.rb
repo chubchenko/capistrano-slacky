@@ -16,7 +16,7 @@ Capistrano::Configuration.env.set(
 
 # Set the branch name to be deployed from SCM.
 Capistrano::Configuration.env.set(
-  :branch, "master"
+  :branch, "main"
 )
 
 # Set the user name.
